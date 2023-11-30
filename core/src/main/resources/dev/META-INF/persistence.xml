@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="BouncerPU">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <!-- Configuring JDBC properties -->
+            <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:mariadb://db.bouncer.dev.zorsecyber.com/1" />
+            <property name="hibernate.connection.username" value="bouncer" />
+            <property name="hibernate.connection.password" value="4O6dzBhcOlCu^yaY1!kkphCEKVNyu576!xg6pqWyi9qA?%p#wYvL1h8tYjPec&amp;yz9YBDp6nxo@8$nOBF#uM84DM5OsRFE4RCrYPaCnk9dXBvPD5lmNdBS9rOb&amp;MHLl^vT#@u^3SXO6QXy#6^Rm*DPa#0wr!WsNNuP?IeCdAZAZ1a!YX@oTG5M%B7Nkz3xqpXvh#0RzhxO%t9mSdfT&amp;yu8kfguIZh?iFksJmZlk2i?!LHj1GufAgmru@XDuzfUbNR" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.id.new_generator_mappings" value="false"/>
+            <property name="hibernate.archive.autodetection" value="class" />
+<!--             <property name="hibernate.show_sql" value="true" /> -->
+<!--             <property name="hibernate.forma  t_sql" value="true" /> -->
+            <property name="hbm2ddl.auto" value="update" />
+            <property name="hibernate.connection.isolation" value="2" />
+
+            <!-- Configuring Connection Pool -->
+            <property name="hibernate.c3p0.min_size" value="10" />
+            <property name="hibernate.c3p0.max_size" value="30" />
+            <property name="hibernate.c3p0.timeout" value="120" />
+            <property name="hibernate.c3p0.max_statements" value="50" />
+            <property name="hibernate.c3p0.idle_test_period" value="5" />
+            
+            
+            <property name="hibernate.c3p0.unreturnedConnectionTimeout" value="30" />
+			<property name="hibernate.c3p0.debugUnreturnedConnectionStackTraces" value="true" />
+			<property name="hibernate.c3p0.statementCacheNumDeferredCloseThreads" value="1"/>
+			
+			<property name="hibernate.enable_lazy_load_no_trans" value="false" />
+        </properties>
+    </persistence-unit>
+</persistence>

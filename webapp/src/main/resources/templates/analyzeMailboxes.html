@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<th:block th:insert="~{fragments/fragments :: jquery}"/>
+	<th:block th:insert="~{fragments/fragments :: datatables}"/>
+	<th:block th:insert="~{fragments/fragments :: datatables-select-and-buttons}"/>
+	<th:block th:insert="~{fragments/fragments :: head}"/>
+ </head>
+<body class="sb-nav-fixed">
+	 <nav th:insert="~{fragments/fragments :: headerBar}">&nbsp;
+     </nav>
+	<div id="layoutSidenav">
+		<div th:insert="~{fragments/fragments :: sideBar}">&nbsp;
+        </div>
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="container-fluid px-4">
+					<h1 class="mt-4">Analyze MailBoxes</h1>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active">Analyze Mailboxes</li>
+					</ol>
+					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-table me-1"></i> Configure Scan
+						</div>
+						<div class="card-body">
+						<small id="nameHelp"
+										class="form-text text-muted">Enter Batch Name</small> <br>
+								<input type="text" class="form-control"
+										id="name" aria-describedby="nameHelp"
+										placeholder="Batch name"> 
+							<table id="mailboxesViewTable" class="display"
+								style="width: 100%"></table>
+								<form >
+								<ul class="list-group" style="list-style:none">
+								<li >
+						<div class="mt-3-5"> 
+							    <label for="from">From</label>
+									<input type="text" id="from" placeholder="Select Start Date" name="from">
+									<label for="to">to</label>
+									<input type="text" id="to" placeholder="Select End Date" name="to">
+									<div class="alert alert-warning mt-3-5" style="display: none; width: fit-content" role="alert" id="mailboxAlert">
+									  Please select a mailbox.
+									</div>
+									<div class="alert alert-warning mt-3-5" style="display: none; width: fit-content" role="alert" id="dateAlert">
+									  Please select a start and end date.
+									</div>
+									
+						</div>
+								</li>
+								<li>
+									<input class='obfuscate-checkbox' type="checkbox" id="obfuscate" name="obfuscate"> 
+									<label for="obfuscate" class="form-text text-muted">Obfuscate File Names</label>
+								</li>
+								<li>
+									<input class='obfuscate-checkbox' type="checkbox" id="sanitize" name="sanitize"> 
+									<label for="sanitize" class="form-text text-muted">Sanitize Files</label>	
+								</li>	
+								</ul>
+								</form>
+		
+							<br>
+							<div th:insert="~{fragments/fragments :: analyzeModal}">&nbsp; </div>
+					</div>
+					</div>
+			</main>
+			 <footer th:insert="~{fragments/fragments :: footer}">&nbsp;
+                </footer>
+		</div>
+	</div>
+	<script src="/js/HbdApi.js"></script>
+	  <script src="/js/analyzeMailboxes.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - Forbidden</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #d43f3a;
+        }
+        p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<h1>403 - Forbidden</h1>
+<p>Oops! It seems you don't have permission to access this page.</p>
+<div>
+    <a th:href="@{/dashboard}" th:if="${isUser}"> <i class="fas fa-arrow-left me-1"></i>Go Back to Dashboard</a>
+</div>
+</body>
+</html>

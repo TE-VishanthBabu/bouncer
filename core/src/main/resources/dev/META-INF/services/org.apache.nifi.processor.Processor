@@ -1,0 +1,13 @@
+com.nteligen.hq.dhs.siaft.processors.WorkflowSelector
+com.nteligen.hq.dhs.siaft.processors.DynamicRouter
+com.nteligen.hq.dhs.siaft.processors.FileAttributeWriter
+com.nteligen.hq.dhs.siaft.processors.SanitizeDbWriter
+com.nteligen.hq.dhs.siaft.processors.AnalysisDBWriter
+com.zorsecyber.bouncer.processors.SophosIntelixAnalysisProcessor
+com.zorsecyber.bouncer.processors.SIIndicatorWriter
+com.zorsecyber.bouncer.processors.SophosIntelixDBWriter
+com.zorsecyber.bouncer.processors.DynamicAnalysisRouter
+com.zorsecyber.bouncer.processors.EndZone
+com.zorsecyber.bouncer.processors.DeepSecure
+com.zorsecyber.bouncer.processors.MetadefenderCloud
+com.zorsecyber.bouncer.processors.SanitizeRouter

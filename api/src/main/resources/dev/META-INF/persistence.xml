@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="BouncerPU">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <!-- Configuring JDBC properties -->
+            <property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:mariadb://db.bouncer.dev.zorsecyber.com:3306/licensing" />
+            <property name="hibernate.connection.username" value="vpnuser" />
+            <property name="hibernate.connection.password" value="vUvVc7$t5e@JIr?GyORdoNCQYZ7Y2gMVG3e5V0fNS^cbcwnF$bodz47jR0vfsv8WnXar35$ySFBvEU2pngT42%lrmHlLsvH$bFKYNG8%e*bConC5oiLeZ1w6DW@q8EG%yvbvO9Bxa?yadxP*$LU!$SoUbfYMeI0VA8?" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB106Dialect" />
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.id.new_generator_mappings" value="false"/>
+            <property name="hibernate.archive.autodetection" value="class" />
+            <!-- <property name="hibernate.show_sql" value="true" /> -->
+            <!-- <property name="hibernate.format_sql" value="true" /> -->
+            <property name="hbm2ddl.auto" value="update" />
+
+            <!-- Configuring Connection Pool -->
+            <property name="hibernate.c3p0.min_size" value="10" />
+            <property name="hibernate.c3p0.max_size" value="30" />
+            <property name="hibernate.c3p0.timeout" value="120" />
+            <property name="hibernate.c3p0.max_statements" value="50" />
+            <property name="hibernate.c3p0.idle_test_period" value="5" />
+            <property name="hibernate.c3p0.unreturnedConnectionTimeout" value="30" />
+			<property name="hibernate.c3p0.debugUnreturnedConnectionStackTraces" value="true" />
+            <property name="hibernate.connection.isolation" value="2" />
+            
+            <property name="hibernate.enable_lazy_load_no_trans" value="false" />
+        </properties>
+    </persistence-unit>
+</persistence>

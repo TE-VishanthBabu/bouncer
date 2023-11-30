@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<th:block th:insert="~{fragments/fragments :: jquery}"/>
+		<th:block th:insert="~{fragments/fragments :: datatables}"/>
+		<th:block th:insert="~{fragments/fragments :: head}"/>
+ </head>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav th:insert="~{fragments/fragments :: headerBar}">&nbsp;
+     </nav>
+        <div id="layoutSidenav">
+            <div th:insert="~{fragments/fragments :: sideBar}">&nbsp;
+        	</div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 th:text="'Batch '+${name}" class="mt-4" />
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Report</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Batch
+                            </div>
+                            <div class="card-body">
+                                <table id="taskTable" class="display" style="width:100%">
+                                </table>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id='filetypeSummaryButton' style='margin-bottom:1.5em' onclick="showFiletypeSummaryTable()">Generate File Type Summary</button>
+                           <div class="card mb-4" id="filetypeSummaryCard" hidden>
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                File Type Summary
+                            </div>
+                            <div class="card-body">
+                                <table id="filetypeSummaryTable" class="display" style="width:100%">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer th:insert="~{fragments/fragments :: footer}">&nbsp;
+            </div>
+        </div>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> -->
+        <!-- <script src="/Dashboard/js/scripts.js"></script> -->
+        <script src="/js/HbdApi.js"></script>
+        <script batchId=th:value="$(batchId)" src="/js/taskTable.js"></script>
+        
+        <script th:inline="javascript">
+      		MYLIBRARY.init(["firstValue", [(${batchId})], "thirdValue"]);
+    </script>
+        <!-- <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script> -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="/Dashboard/js/datatables-simple-demo.js">/*  */</script> -->
+    </body>
+</html>

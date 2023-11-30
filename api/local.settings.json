@@ -1,0 +1,32 @@
+{
+  "IsEncrypted": false,
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "*"
+  },
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "java",
+    "AzureWebJobsStorage": "SharedAccessSignature=sv=2021-10-04&ss=btqf&srt=sco&spr=https%2Chttp&st=2023-07-22T02%3A15%3A39Z&se=2023-09-22T02%3A15%3A00Z&sp=rwdxftlacup&sig=3KaL8RtNFou1eJJuPFJQPLf7gVjKViPCIzfMp0CxVkk%3D;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;FileEndpoint=http://devstoreaccount1.file.core.windows.net;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;",
+    "STORAGE_TABLE_NAME": "status",
+    "APPSETTING_bouncer.queue.files": "file-tasks",
+    "APPSETTING_bouncer.queue.graph": "graph-tasks",
+    "APPSETTING_bouncer.storageaccount.connection-string": "DefaultEndpointsProtocol=https;AccountName=sabouncerdeveastus001;AccountKey=BEEM/tXlf95PYbQldyB30PvnwAPBGlO91n/ZkTRlvHWXsLo4dk4Mqh7nH/guniIZ4RspnxRlJa4n+AStJet29w==;BlobEndpoint=https://sabouncerdeveastus001.blob.core.windows.net/;QueueEndpoint=https://sabouncerdeveastus001.queue.core.windows.net/;TableEndpoint=https://sabouncerdeveastus001.table.core.windows.net/;FileEndpoint=https://sabouncerdeveastus001.file.core.windows.net/;",
+    "APPSETTING_bouncer.containers.userdata": "userdata",
+    "APPSETTING_bouncer.containers.ingest": "ingest",
+    "DISABLED.APPINSIGHTS_INSTRUMENTATIONKEY": "f7b0d2f9-ac3d-4701-b188-54c5a59b546e",
+    "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false",
+
+    "AzureFunctionsJobHost:logging:logLevel:Microsoft.Azure.WebJobs.Script.WebHost.Middleware.SystemTraceMiddleware": "Information",
+    "AzureFunctionsJobHost:logging:logLevel:Worker.rpcWorkerProcess": "Error",
+
+
+    "AzureFunctionsJobHost:logging:logLevel:Worker": "Error",
+    
+
+    "logging:logLevel:Worker": "Error"
+    
+  },
+  "functionTimeout": "05:00:00",
+   "visibilityTimeout": "00:00:30",
+   "maxDequeueCount": 2
+}

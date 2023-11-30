@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<th:block th:insert="~{fragments/fragments :: jquery}"/>
+	<th:block th:insert="~{fragments/fragments :: datatables}"/>
+	<th:block th:insert="~{fragments/fragments :: head}"/>
+</head>
+<body class="sb-nav-fixed">
+	<nav th:insert="~{fragments/fragments :: headerBar}">&nbsp;
+    </nav>
+	<div id="layoutSidenav">
+		 <div th:insert="~{fragments/fragments :: sideBar}">&nbsp;
+         </div>
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="container-fluid px-4">
+					<h1 class="mt-4">Analyze Files</h1>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active">Analyze Files</li>
+					</ol>
+					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-table me-1"></i> Submit Archives
+						</div>
+						<div class="card-body">
+							<form id="submitForm" onsubmit="return false">
+								<div class="form-group">
+								<small id="nameHelp"
+										class="form-text text-muted">Enter Batch Name</small> <br>
+								<input type="text" class="form-control"
+										id="name" aria-describedby="nameHelp"
+										placeholder="Batch name"> 
+										<small id="archivesToSubmitHelp"
+										class="form-text text-muted">Enter archive names
+										separated by commas.</small> <br>
+									<input type="text" class="form-control"
+										id="archivesToSubmit" aria-describedby="archivesToSubmitHelpp"
+										placeholder="1.pst,2.pst..." required>  
+										<div class="alert alert-warning mt-3-5" style="display: none; width: fit-content" role="alert" id="archiveAlert">
+									  		Please enter at least one archive name.
+										</div>
+										<input type="checkbox" id="obfuscate" name="obfuscate"> 
+										<label
+										for="obfuscate" class="form-text text-muted">Obfuscate File Names</label>
+										<input type="checkbox" id="sanitize" name="sanitize"> 
+										<label
+										for="sanitize" class="form-text text-muted">Sanitize Suspicious & Malicious</label>
+								</div>
+							</form>
+							<br>
+						<div th:insert="~{fragments/fragments :: analyzeModal}">&nbsp; </div>
+					</div>
+					<div class="card mb-4">
+						<div class="card-header">
+							<div id="info" class="alert alert-info visually-hidden" role="alert">
+							  Don't See Your Files? <a href="/upload" class="alert-link">Upload Files Here</a>.
+							</div>
+							<i class="fas fa-table me-1"></i> Available Archives
+						</div>
+						<div class="card-body">
+							<table id="filesViewTable" class="display" style="width: 100%"></table>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer th:insert="~{fragments/fragments :: footer}">&nbsp;
+                </footer>
+		</div>
+	</div>
+			<script src="/js/HbdApi.js"></script>
+	<script src="/js/analyzeFiles.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zorsecyber.bouncer.api</groupId>
+    <artifactId>bouncer-api</artifactId>
+    <packaging>jar</packaging>
+		<parent>
+		<groupId>com.zorsecyber.bouncer</groupId>
+		<artifactId>bouncer</artifactId>
+		<version>1.0</version>
+	</parent>
+
+    <name>bouncer.api</name>
+
+    <properties>
+		<functionAppName>bouncer-api</functionAppName>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <azure.functions.maven.plugin.version>1.21.0</azure.functions.maven.plugin.version>
+        <azure.functions.java.library.version>2.0.1</azure.functions.java.library.version>
+        <hibernate.version>5.2.16.Final</hibernate.version>
+    </properties>
+    
+    <profiles>
+    <profile>
+        <id>prod</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <properties>
+                <functionAppName>hauberk-detection-api-prod</functionAppName>
+                <subscriptionId>aeb42da3-64cb-4804-a067-f43d142663c8</subscriptionId>
+                <resourceGroup>rg-hauberk-detection-api-prod</resourceGroup>
+                <appServicePlanName>ASP-hauberk-prod</appServicePlanName>
+                <pricingTier>S2</pricingTier>
+                <deploymentSlot>hauberk-detection-api-prod</deploymentSlot>
+            </properties>
+        <build>
+            <resources>
+                <resource>
+                    <directory>src/main/resources/prod</directory>
+                </resource>
+            </resources>
+        </build>
+    </profile>
+    <profile>
+        <id>dev</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <properties>
+            </properties>
+        <build>
+            <resources>
+                <resource>
+                    <directory>src/main/resources/dev</directory>
+                </resource>
+            </resources>
+        </build>
+    </profile>
+        <profile>
+        <id>staging</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <properties>
+            </properties>
+        <build>
+            <resources>
+                <resource>
+                    <directory>src/main/resources/staging</directory>
+                </resource>
+            </resources>
+        </build>
+    </profile>
+    <profile>
+        <id>test</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+                <properties>
+            </properties>
+        <build>
+            <resources>
+                <resource>
+                    <directory>src/main/resources/test</directory>
+                </resource>
+            </resources>
+        </build>
+    </profile>
+</profiles>
+
+<dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure.functions</groupId>
+            <artifactId>azure-functions-java-library</artifactId>
+            <version>${azure.functions.java.library.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.microsoft.azure/applicationinsights-logging-log4j2 -->
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>applicationinsights-logging-log4j2</artifactId>
+			<version>2.6.4</version>
+		</dependency>
+        <!-- https://mvnrepository.com/artifact/com.azure/azure-storage-file-share -->
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-storage-file-share</artifactId>
+		    <version>12.16.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.azure/azure-identity -->
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-identity</artifactId>
+		    <version>1.8.1</version>
+		    <scope>compile</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.microsoft.graph/microsoft-graph -->
+		<dependency>
+		    <groupId>com.microsoft.graph</groupId>
+		    <artifactId>microsoft-graph</artifactId>
+		    <version>5.47.0</version>
+		</dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.7</version>
+        </dependency>
+            <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>2.0.7</version>
+        </dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>5.6.14.Final</version>
+		</dependency>
+        		<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-c3p0</artifactId>
+	    <version>5.6.14.Final</version>
+	</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+		<dependency>
+		    <groupId>org.mariadb.jdbc</groupId>
+		    <artifactId>mariadb-java-client</artifactId>
+		    <version>3.0.8</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.pff/java-libpst -->
+		<dependency>
+		    <groupId>com.pff</groupId>
+		    <artifactId>java-libpst</artifactId>
+		    <version>0.9.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.11.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.15</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin -->
+		<dependency>
+		    <groupId>com.microsoft.azure</groupId>
+		    <artifactId>azure-functions-maven-plugin</artifactId>
+		    <version>1.21.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.azure</groupId>
+		  <artifactId>azure-storage-queue</artifactId>
+		  <version>12.6.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.azure/azure-storage-blob -->
+		<dependency>
+		    <groupId>com.azure</groupId>
+		    <artifactId>azure-storage-blob</artifactId>
+		    <version>12.20.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tika/tika-core -->
+		<dependency>
+		    <groupId>org.apache.tika</groupId>
+		    <artifactId>tika-core</artifactId>
+		    <version>2.6.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20220924</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpmime</artifactId>
+		    <version>4.5.13</version>
+		</dependency>
+
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.4.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.23.4</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+			          <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-functions-maven-plugin</artifactId>
+                <version>${azure.functions.maven.plugin.version}</version>
+                <configuration>
+                    <!-- function app name -->
+                    <appName>${functionAppName}</appName>
+                    <runtime>
+                        <!-- runtime os, could be windows, linux or docker-->
+                        <os>windows</os>
+                        <javaVersion>17</javaVersion>
+                    </runtime>
+                    <appSettings>
+                        <property>
+                            <name>FUNCTIONS_EXTENSION_VERSION</name>
+                            <value>~4</value>
+                        </property>
+                    </appSettings>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>package-functions</id>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--Remove obj folder generated by .NET SDK in maven clean-->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>obj</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

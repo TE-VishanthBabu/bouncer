@@ -1,0 +1,25 @@
+**/target/**
+**/.settings/**
+**/.gradle/**
+
+**/.classpath
+**/.project
+**/.settings/**
+**/.vscode/**
+**/.idea
+**/.metadata**/**
+**/.DS_Store
+**/.package-lock.json
+**/.package.json
+
+# azurite
+**/__**
+
+**/.env
+**/env.properties
+
+**/venv
+**/dev-utility/flows
+
+# exclude core builds from k8s resources folder
+core/k8s/initcontainer/resources/*
